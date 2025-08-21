@@ -1,4 +1,5 @@
 pipeline{
+  agent any
   stages{
     stage('Build'){
       steps{
@@ -7,11 +8,13 @@ pipeline{
     }
     stage('Test'){
       steps{
+        script{
         if (fileExists('index.html')) {
             echo 'Yes'
         } else {
             echo 'No'
               }
+        }
       }
     }
   }
